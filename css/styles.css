@@ -9,6 +9,14 @@ main {
 main > div {
     flex: 0 1 auto;
 }
+
+.grid-container {
+    width: 40vw;
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+
 .menu-container {
     display: flex;
     flex-direction: column;
@@ -16,6 +24,11 @@ main > div {
     width: 20vw;
     padding-top: 4rem;
 }
+
+.filler-container {
+    width: 20vw;
+}
+
 .menu-container > div {
     flex:auto;
     display: flex;
@@ -34,9 +47,20 @@ main > div {
     background-color: #357edd;
 }
 
+.grid-row {
+    display: flex;
+    flex: auto;
+    
+}
+
+.grid-col {
+    flex: auto;
+    border: 1px solid black;
+}
+
 footer {
-    position:fixed;
     bottom: 0;
     width: 100vw;
     text-align: center;
 }
+
