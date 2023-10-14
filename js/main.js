@@ -25,8 +25,15 @@ function createGrid(gridSize){
     }
 }
 
+function setColor(newColor){
+    paintColor = newColor;
+}
 
-
+function setColorWhite(){
+    document.querySelector('#white-button').addEventListener('click', event => {
+        setColor('#ffffff');
+    })
+}
 function draw(){
     squares.forEach( item => {
         item.addEventListener('pointerover', event => {
@@ -37,3 +44,4 @@ function draw(){
 
 
 draw();
+setColorWhite();
