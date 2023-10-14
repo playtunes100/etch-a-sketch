@@ -1,4 +1,10 @@
 
+createGrid(20);
+
+let squares = document.querySelectorAll('.grid-col');
+let gridSize = 16;
+let paintColor = '#000000';
+
 function createGrid(gridSize){
     const gridContainer = document.querySelector(".grid-container");
     let counter = 1;
@@ -19,4 +25,15 @@ function createGrid(gridSize){
     }
 }
 
-createGrid(20);
+
+
+function draw(){
+    squares.forEach( item => {
+        item.addEventListener('pointerover', event => {
+            event.currentTarget.style.backgroundColor = paintColor;
+        })
+    })
+}
+
+
+draw();
