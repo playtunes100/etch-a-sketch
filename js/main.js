@@ -34,6 +34,13 @@ function setColorWhite(){
         setColor('#ffffff');
     })
 }
+
+function setColorBlack(){
+    document.querySelector('#black-button').addEventListener('click', event => {
+        setColor('#000000');
+    })
+}
+
 function draw(){
     squares.forEach( item => {
         item.addEventListener('pointerover', event => {
@@ -45,3 +52,4 @@ function draw(){
 
 draw();
 setColorWhite();
+setColorBlack();
