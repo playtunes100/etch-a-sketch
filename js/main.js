@@ -1,8 +1,6 @@
 
-createGrid(20);
-
-let squares = document.querySelectorAll('.grid-col');
 let gridSize = 16;
+let squares = null;
 const colors = ['springgreen', 'steelblue', 'teal', 'tomato', 'turquoise', 'violet', 'whitesmoke', 'yellowgreen', 'white', 'red','orange','yellow','green','blue','indigo', 'black'];
 let paintColor = '#000000';
 let paintColorRandom = false;
@@ -26,6 +24,8 @@ function createGrid(gridSize){
             
         }
     }
+    squares = document.querySelectorAll('.grid-col');
+    draw();
 }
 
 function setColor(newColor){
@@ -52,6 +52,17 @@ function setColorRandom(){
     })
 }
 
+function reset(){
+    
+    document.querySelector('#reset-button').addEventListener('click', event => {
+        paintColor = '#000000';
+        paintColorRandom = false;
+        document.querySelectorAll('.grid-row').forEach( item => item.remove());
+        squares.forEach( item => item.remove());
+        createGrid(16);
+    })
+}
+
 function draw(){
     squares.forEach( item => {
         item.addEventListener('pointerover', event => {
@@ -65,8 +76,8 @@ function draw(){
     })
 }
 
-
-draw();
+createGrid(gridSize);
 setColorWhite();
 setColorBlack();
 setColorRandom();
+reset();
