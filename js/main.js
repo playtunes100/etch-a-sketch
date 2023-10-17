@@ -4,6 +4,7 @@ let squares = null;
 const colors = ['springgreen', 'steelblue', 'teal', 'tomato', 'turquoise', 'violet', 'whitesmoke', 'yellowgreen', 'white', 'red','orange','yellow','green','blue','indigo', 'black'];
 let paintColor = '#000000';
 let paintColorRandom = false;
+let input = '';
 
 
 function createGrid(gridSize){
@@ -52,14 +53,28 @@ function setColorRandom(){
     })
 }
 
-function reset(){
+function reset(size = 16){
+    paintColor = '#000000';
+    paintColorRandom = false;
+    document.querySelectorAll('.grid-row').forEach( item => item.remove());
+    squares.forEach( item => item.remove());
+    createGrid(size);
     
+}
+function resetButton(){
     document.querySelector('#reset-button').addEventListener('click', event => {
-        paintColor = '#000000';
-        paintColorRandom = false;
-        document.querySelectorAll('.grid-row').forEach( item => item.remove());
-        squares.forEach( item => item.remove());
-        createGrid(16);
+        reset();
+    })
+}
+
+function setGridSize(){
+    
+    document.querySelector('#change-button').addEventListener('click', event => {
+        do{
+            input = parseInt(prompt("Enter a number from 1 to 100", 16), 10);
+        }while(!Number.isInteger(input) || input > 100 || input < 1);
+
+        reset(input);
     })
 }
 
@@ -80,4 +95,5 @@ createGrid(gridSize);
 setColorWhite();
 setColorBlack();
 setColorRandom();
-reset();
+setGridSize();
+resetButton();
